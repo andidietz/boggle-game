@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Boggle{% endblock %}
+{% block content %}
+    <table>
+        <tbody class='boggle-board'>
+            {% for row in board %}
+                <tr>
+                    {% for letter in row %}
+                    <td>
+                        {{letter}}
+                    </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class='msg'></p>
+    <p class='score'>Score:</p>
+    <form action='#' class='boggle'>
+        <input type='text' placeholder='guess' name='guess' id='guess-input'>
+        <button id='submit'>submit guess</button>
+    </form>
+    <form action='/'>
+        <button class='start'>Start Game</button>
+    </form>
+    <p class='timer'></p>
+    <ol class='words'>Words Found</ol>
+{% endblock %}
